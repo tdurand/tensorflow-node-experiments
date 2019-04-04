@@ -46,7 +46,7 @@ const classify = async (model, path) => {
   const image = readImage(path)
   const input = imageToInput(image, NUMBER_OF_CHANNELS)
 
-  const  mn_model = await loadModel(model)
+  const  mn_model = await mobilenet.load();
   const predictions = await mn_model.classify(input)
 
   console.log('classification results:', predictions)
